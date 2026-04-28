@@ -2,6 +2,8 @@
 
 A React + Vite slide presentation template with dark theme, smooth animations, keyboard navigation, and one-click PDF export.
 
+**Live demo:** https://newrentl.github.io/presentation-template/
+
 > For the full design system reference — colors, tokens, components, animation variants, and composition recipes — see [`DESIGN_SYSTEM.md`](./DESIGN_SYSTEM.md).
 
 ---
