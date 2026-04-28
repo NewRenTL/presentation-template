@@ -1,0 +1,116 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   UTEC DESIGN SYSTEM
+   Universidad de Ingeniería y Tecnología — utec.edu.pe
+   Adapted for dark-mode slide presentations.
+
+   Primary:   #00BFFF  UTEC Cyan
+   Alt:       #0FF0FF  UTEC Aqua (gradient complement)
+   Slate:     #304659  UTEC Dark Slate
+   Gray:      #5F6480  UTEC Muted Gray
+───────────────────────────────────────────────────────────────────────────── */
+
+@layer base {
+  :root {
+    /* Backgrounds */
+    --color-bg-deep:    #0A1118;
+    --color-bg-darker:  #070C12;
+    --color-bg-darkest: #04070D;
+
+    /* UTEC brand colors */
+    --color-primary:      #00BFFF;
+    --color-primary-alt:  #0FF0FF;
+    --color-primary-dark: #0099CC;
+    --color-slate:        #304659;
+    --color-gray:         #5F6480;
+
+    /* Typography */
+    --font-heading: 'Outfit', sans-serif;
+    --font-body:    'Inter', sans-serif;
+    --font-mono:    'JetBrains Mono', monospace;
+  }
+
+  html, body, #root {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    margin: 0;
+    padding: 0;
+  }
+
+  body {
+    background-color: var(--color-bg-deep);
+    font-family: var(--font-body);
+    color: #94a3b8;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-bg-deep);
+  }
+
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--color-bg-darker); }
+  ::-webkit-scrollbar-thumb { background: #1e293b; border-radius: 4px; }
+  ::-webkit-scrollbar-thumb:hover { background: var(--color-primary); }
+}
+
+@layer utilities {
+  /* gradient-text: UTEC Cyan → Aqua gradient on text */
+  .gradient-text {
+    background: linear-gradient(135deg, #00BFFF 0%, #0FF0FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* glass: semi-transparent frosted card */
+  .glass {
+    background: rgba(255, 255, 255, 0.04);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+
+  .glass-strong {
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(24px);
+    -webkit-backdrop-filter: blur(24px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  /* UTEC-derived card color utilities */
+  .card-cyan  { background: rgba(0, 191, 255, 0.06);  border: 1px solid rgba(0, 191, 255, 0.18);  border-radius: 16px; }
+  .card-blue  { background: rgba(59, 130, 246, 0.06); border: 1px solid rgba(59, 130, 246, 0.18); border-radius: 16px; }
+  .card-slate { background: rgba(48, 70, 89, 0.12);   border: 1px solid rgba(48, 70, 89, 0.28);   border-radius: 16px; }
+  .card-aqua  { background: rgba(15, 240, 255, 0.05); border: 1px solid rgba(15, 240, 255, 0.16); border-radius: 16px; }
+
+  .font-heading { font-family: var(--font-heading); }
+  .font-body    { font-family: var(--font-body); }
+  .font-mono    { font-family: var(--font-mono); }
+
+  /* pulse-glow: breathing animation for accent dots and highlights */
+  .pulse-glow { animation: pulse-glow 2.5s ease-in-out infinite; }
+
+  /* float-orb: slow drift for ambient background orbs */
+  .float-orb  { animation: mesh-float 20s ease-in-out infinite; }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.6; }
+  50%       { opacity: 1; }
+}
+
+@keyframes mesh-float {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25%       { transform: translate(40px, -30px) scale(1.05); }
+  50%       { transform: translate(-20px, 50px) scale(0.97); }
+  75%       { transform: translate(-50px, -20px) scale(1.03); }
+}
